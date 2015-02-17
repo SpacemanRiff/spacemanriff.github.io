@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html>
-    <body>
-        <h1> Nice </h1>
-        <p>hmu fam @spacemanriff</p>
+    <script>
+        function diffImage(img){
+           if(img.src.match(/blank/)) img.src = "nice.png";
+           else img.src = "yay.png";
+        }
+    </script>
+    <head>
+        <title>Spaceman Riff!</title>
+    </head>
+    <body bgcolor="#000">
+        <center>
+            <a href = http://soundcloud.com/spacemanriff><img src="nice.png" alt=":^(" height="50%" width="50%" onclick=diffImage(this)></a>
+        </center>
     <body>
 </html>
