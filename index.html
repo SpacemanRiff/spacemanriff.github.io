@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>   
     <script>
-        function diffImage(img){
-           if(img.src.match(/blank/)) img.src = "nice.png";
+        function diffImage(img) {
+           "use strict";
+           if (img.src.match(/blank/)) img.src = "nice.png";
            else img.src = "yay.png";
         }
     </script>
     
     <head>
         <style>
-            body{
+            <!--body{
                 background-color: #000000;
-            }
+                background-image: url("backgroundtile.png");
+            }-->
             
             .center{
                 position: absolute;
@@ -25,7 +27,7 @@
         <link rel="shortcut icon" href="riff_semitransparent_black.png"/>
     </head>
     
-    <body>
+    <body background="backgroundtile.png">
         <div class="center">
             <a href = http://soundcloud.com/spacemanriff>
                 <img src="nice.png" alt=":^(" width="350" height="425" onclick=diffImage(this) />
