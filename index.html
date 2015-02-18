@@ -3,34 +3,58 @@
     <script>
         function diffImage(img) {
            "use strict";
-           if (img.src.match("./resources/yay.png")) img.src = "./resources/nice.png";
-           else img.src = "./resources/yay.png";
+           if(img.id.match("soundcloud")){
+               if (img.src.match("./resources/yay.png")) img.src = "./resources/nice.png";
+               else img.src = "./resources/yay.png";
+           }
+           else {
+               if (img.src.match("./resources/social/" + img.id + "/yay_" + img.id + ".png")) img.src = "./resources/social/" + img.id + "/nice_" + img.id + ".png";
+               else img.src = "./resources/social/" + img.id + "/yay_" + img.id + ".png";
+           }
         }
     </script>
     
     <head>
-        <style>          
+        <style>       
+            img {
+                display: block;
+                padding-bottom: 20px;
+            }
             .center {
                 position: absolute;
                 top: 50%;
                 left: 50%;
                 transform: translateX(-50%) translateY(-50%);      
             }
-            html {
-                min-height: 100%;
-                box-shadow: 0 0 600px rgba(0,0,0,1) inset;
+            #links {
+                position: fixed;
+                bottom: 0px;
+                right: 0px;
             }
         </style>
         
         <title>Spaceman Riff!</title>
-        <link rel="shortcut icon" href="./resources/riff_semitransparent_black.png"/>
+        <link rel="shortcut icon" href="./resources/icon.png"/>
     </head>
     
     <body background="./resources/backgroundtile.png">
-        <div class="vignette"></div>
-        <div class="center">
+        <div class = "center">
             <a href = http://soundcloud.com/spacemanriff>
-                <img src="./resources/nice.png" id="image1" alt=":^(" width="350" height="425" onclick=diffImage(this) />
+                <img src="./resources/nice.png" id="soundcloud" alt=":^(" width="350" height="425" onclick=diffImage(this) />
+            </a>
+        </div>
+        <div id = "links">
+            <a href = http://twitter.com/spacemanriff title = "twitter">
+                <img src="./resources/social/twitter/nice_twitter.png" id="twitter" alt="twitter" width="50" height="75" onclick=diffImage(this) />
+            </a>
+            <a href = http://facebook.com/spacemanriffmusic title = "facebook">
+                <img src="./resources/social/facebook/nice_facebook.png" id="facebook" alt="facebook" width="50" height="75" onclick=diffImage(this) />
+            </a>
+            <a href = https://www.youtube.com/channel/UCPns5jcDA-OQkkPRooIaQcw title = "youtube">
+                <img src="./resources/social/youtube/nice_youtube.png" id="youtube" alt="youtube" width="50" height="75" onclick=diffImage(this) />
+            </a>
+            <a href = http://instagram.com/spacemanriff title = "instagram">
+                <img src="./resources/social/instagram/nice_instagram.png" id="instagram" alt="instagram" width="50" height="75" onclick=diffImage(this) />
             </a>
         </div>
     <body>
