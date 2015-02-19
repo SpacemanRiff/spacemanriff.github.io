@@ -3,14 +3,8 @@
     <script>
         function diffImage(img) {
            "use strict";
-           if(img.id.match("soundcloud")){
-               if (img.src.match("./resources/yay.png")) img.src = "./resources/nice.png";
-               else img.src = "./resources/yay.png";
-           }
-           else {
-               if (img.src.match("./resources/social/" + img.id + "/yay_" + img.id + ".png")) img.src = "./resources/social/" + img.id + "/nice_" + img.id + ".png";
-               else img.src = "./resources/social/" + img.id + "/yay_" + img.id + ".png";
-           }
+           if (img.src.match("./resources/social/" + img.id + "/yay_" + img.id + ".png")) img.src = "./resources/social/" + img.id + "/nice_" + img.id + ".png";
+           else img.src = "./resources/social/" + img.id + "/yay_" + img.id + ".png";
         }
     </script>
     
