@@ -10,17 +10,26 @@
     
     <head>
         <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-        <style>       
+        <style>              
             img {
                 display: block;
                 padding-top: 20px;
             }
-            .center {
-                position: absolute;
+            
+            #cf img {
+                position:absolute;
                 top: 50%;
                 left: 50%;
-                transform: translateX(-50%) translateY(-50%);      
+                transform: translateX(-50%) translateY(-50%);   
+                -webkit-transition: opacity 0.2s;
+                -moz-transition: opacity 0.2s;
+                -o-transition: opacity 0.2s;
+                transition: opacity 0.2s;
             }
+            #cf img.top:hover {
+                opacity: 0;
+            }
+            
             #links {
                 position: absolute;
                 bottom: 30px;
@@ -35,9 +44,9 @@
             }
             .move:hover {
                 right: 20px;
-                -webkit-transition: right 0.3s;
-                -moz-transition: right 0.3s;
-                -o-transition: right 0.3s;         
+                -webkit-transition: right 0.2s;
+                -moz-transition: right 0.2s;
+                -o-transition: right 0.2s;         
             }
             
             a.tooltips {
@@ -77,24 +86,25 @@
     </head>
     
     <body background="./resources/backgroundtile.png">
-        <div class = "center">
-            <a href = http://soundcloud.com/spacemanriff>
-                <img src="./resources/nice.png" id="soundcloud" alt=":^(" width="350" height="425" onclick=diffImage(this) />
+        <div id="cf">
+            <a href = http://music.spacemanriff.me>
+                <img class="bottom" src="./resources/social/soundcloud/yay_soundcloud.png" id="soundcloud" alt=":^(" width="350" height="425" />
+                <img class="top" src="./resources/social/soundcloud/nice_soundcloud.png" id="soundcloud" alt=":^(" width="350" height="425" onclick=diffImage(this) />
             </a>
         </div>
         <div id = "links">
             <div class = "move">
-                <a class="tooltips" href = http://twitter.spacemanriff.me/>
+                <a class="tooltips" href = http://twitter.spacemanriff.me>
                     <img src="./resources/social/twitter/nice_twitter.png" id="twitter" alt="twitter" width="70" height="85" onclick=diffImage(this) /><span>Twitter</span>
                 </a>
             </div>
             <div class = "move">
-                <a class="tooltips" href = http://facebook.spacemanriff.me/>
+                <a class="tooltips" href = http://facebook.spacemanriff.me>
                     <img src="./resources/social/facebook/nice_facebook.png" id="facebook" alt="facebook" width="70" height="85" onclick=diffImage(this) /><span>Facebook</span>
                 </a>
             </div>
             <div class = "move">
-                <a class="tooltips" href = http://youtube.spacemanriff.me/>
+                <a class="tooltips" href = http://youtube.spacemanriff.me>
                     <img src="./resources/social/youtube/nice_youtube.png" id="youtube" alt="youtube" width="70" height="85" onclick=diffImage(this) /><span>Youtube</span>
                 </a>
             </div>
