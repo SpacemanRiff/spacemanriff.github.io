@@ -22,7 +22,7 @@
             }
             #links {
                 position: absolute;
-                bottom: 0px;
+                bottom: 10px;
                 right: 0px;                
             }
             .move {
@@ -38,6 +38,39 @@
                 -moz-transition: right 0.3s;
                 -o-transition: right 0.3s;         
             }
+            
+            a.tooltips {
+                position: relative;
+                display: inline;
+            }
+            a.tooltips span {
+                position: absolute;
+                width:70px;
+                color: #FFFFFF;
+                background: #000000;
+                height: 24px;
+                line-height: 24px;
+                text-align: center;
+                visibility: hidden;
+                border-radius: 3px;
+            }
+            a.tooltips span:after {
+                content: '';
+                position: absolute;
+                top: 100%;
+                margin-left: -8px;
+                width: 0; height: 0;
+                border-top: 4px solid #000000;
+                border-right: 4px solid transparent;
+                border-left: 4px solid transparent;
+            }
+            a:hover.tooltips span {
+                visibility: visible;
+                opacity: 0.8;
+                bottom: 20px;
+                margin-left: 0px;
+                z-index: 999;
+            }
         </style>
         
         <title>Spaceman Riff!</title>
@@ -52,18 +85,18 @@
         </div>
         <div id = "links">
             <div class = "move">
-                <a href = http://twitter.spacemanriff.me/ title = "twitter" >
-                    <img src="./resources/social/twitter/nice_twitter.png" id="twitter" alt="twitter" width="70" height="85" onclick=diffImage(this) />
+                <a class="tooltips" href = http://twitter.spacemanriff.me/>
+                    <img src="./resources/social/twitter/nice_twitter.png" id="twitter" alt="twitter" width="70" height="85" onclick=diffImage(this) /><span>Twitter</span>
                 </a>
             </div>
             <div class = "move">
-                <a href = http://facebook.spacemanriff.me/ title = "facebook">
-                    <img src="./resources/social/facebook/nice_facebook.png" id="facebook" alt="facebook" width="70" height="85" onclick=diffImage(this) />
+                <a class="tooltips" href = http://facebook.spacemanriff.me/>
+                    <img src="./resources/social/facebook/nice_facebook.png" id="facebook" alt="facebook" width="70" height="85" onclick=diffImage(this) /><span>Facebook</span>
                 </a>
             </div>
             <div class = "move">
-                <a href = http://youtube.spacemanriff.me/ title = "youtube">
-                    <img src="./resources/social/youtube/nice_youtube.png" id="youtube" alt="youtube" width="70" height="85" onclick=diffImage(this) />
+                <a class="tooltips" href = http://youtube.spacemanriff.me/>
+                    <img src="./resources/social/youtube/nice_youtube.png" id="youtube" alt="youtube" width="70" height="85" onclick=diffImage(this) /><span>Youtube</span>
                 </a>
             </div>
         </div>
