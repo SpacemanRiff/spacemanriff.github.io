@@ -21,9 +21,18 @@
                 transform: translateX(-50%) translateY(-50%);      
             }
             #links {
-                position: fixed;
+                position: absolute;
                 bottom: 0px;
-                right: 0px;
+                right: 0px;   
+                -webkit-transition: right 0.4s;
+                -moz-transition: right 0.4s;
+                -o-transition: right 0.4s;  
+            }
+            #links:hover {
+                right: 10px;
+                -webkit-transition: right 0.3s;
+                -moz-transition: right 0.3s;
+                -o-transition: right 0.3s;                    
             }
         </style>
         
@@ -39,13 +48,13 @@
         </div>
         <div id = "links">
             <a href = http://twitter.spacemanriff.me/ title = "twitter">
-                <img src="./resources/social/twitter/nice_twitter.png" id="twitter" alt="twitter" width="60" height="90" onclick=diffImage(this) />
+                <img src="./resources/social/twitter/nice_twitter.png" id="twitter" alt="twitter" width="70" height="85" onclick=diffImage(this) />
             </a>
             <a href = http://facebook.spacemanriff.me/ title = "facebook">
-                <img src="./resources/social/facebook/nice_facebook.png" id="facebook" alt="facebook" width="60" height="90" onclick=diffImage(this) />
+                <img src="./resources/social/facebook/nice_facebook.png" id="facebook" alt="facebook" width="70" height="85" onclick=diffImage(this) />
             </a>
             <a href = http://youtube.spacemanriff.me/ title = "youtube">
-                <img src="./resources/social/youtube/nice_youtube.png" id="youtube" alt="youtube" width="60" height="90" onclick=diffImage(this) />
+                <img src="./resources/social/youtube/nice_youtube.png" id="youtube" alt="youtube" width="70" height="85" onclick=diffImage(this) />
             </a>
         </div>
     <body>
