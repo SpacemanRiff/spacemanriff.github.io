@@ -2,9 +2,14 @@
 <html>   
     <script>
         function diffImage(img) {
-           "use strict";
-           if (img.src.match("./resources/social/" + img.id + "/yay_" + img.id + ".png")) img.src = "./resources/social/" + img.id + "/nice_" + img.id + ".png";
-           else img.src = "./resources/social/" + img.id + "/yay_" + img.id + ".png";
+            "use strict";
+            if(img.id.match("main")){
+                if (img.src.match("./resources/yay.png")) img.src = "./resources/nice.png";
+                else img.src = "./resources/yay.png";              
+            }else{
+                if (img.src.match("./resources/social/" + img.id + "/yay_" + img.id + ".png")) img.src = "./resources/social/" + img.id + "/nice_" + img.id + ".png";
+                else img.src = "./resources/social/" + img.id + "/yay_" + img.id + ".png";  
+            }
         }
     </script>
     
@@ -87,12 +92,17 @@
     
     <body background="./resources/backgroundtile.png">
         <div id="cf">
-            <a href = http://music.spacemanriff.me>
-                <img class="bottom" src="./resources/social/soundcloud/yay_soundcloud.png" id="soundcloud" alt=":^(" width="350" height="425" />
-                <img class="top" src="./resources/social/soundcloud/nice_soundcloud.png" id="soundcloud" alt=":^(" width="350" height="425" onclick=diffImage(this) />
+            <a href = http://nice.spacemanriff.me>
+                <img class="bottom" src="./resources/yay.png" id="main" alt=":^(" width="350" height="425" />
+                <img class="top" src="./resources/nice.png" id="main" alt=":^(" width="350" height="425" onclick=diffImage(this) />
             </a>
         </div>
         <div id = "links">
+            <div class = "move">
+                <a class="tooltips" href = http://music.spacemanriff.me>
+                    <img src="./resources/social/soundcloud/nice_soundcloud.png" id="soundcloud" alt="soundcloud" width="70" height="85" onclick=diffImage(this) /><span>Soundcloud</span>
+                </a>
+            </div>
             <div class = "move">
                 <a class="tooltips" href = http://twitter.spacemanriff.me>
                     <img src="./resources/social/twitter/nice_twitter.png" id="twitter" alt="twitter" width="70" height="85" onclick=diffImage(this) /><span>Twitter</span>
