@@ -35,23 +35,29 @@
                 opacity: 0;
             }
             
-            #links {
+            #bottomRight {
                 position: absolute;
                 bottom: 30px;
                 right: 20px;                
-            }
-            .move {
+            }            
+            .moveLeft {
                 position: relative;  
                 right: 0px;   
                 -webkit-transition: right 0.5s ease;
                 -moz-transition: right 0.5s ease;
                 -o-transition: right 0.5s ease; 
             }
-            .move:hover {
+            .moveLeft:hover {
                 right: 20px;
                 -webkit-transition: right 0.2s ease;
                 -moz-transition: right 0.2s ease;
                 -o-transition: right 0.2s ease;         
+            }
+            
+            #bottomLeft {
+                position: absolute;
+                bottom: 30px;
+                left: 20px;                
             }
             
             a.tooltips {
@@ -91,39 +97,44 @@
     </head>
     
     <body background="./resources/backgroundtile.png">
-        <div id="cf">
+        <div id = "cf">
             <a href = http://nice.spacemanriff.me>
                 <img class="bottom" src="./resources/yay.png" id="main" alt=":^(" width="350" height="425" />
                 <img class="top" src="./resources/nice.png" id="main" alt=":^(" width="350" height="425" onclick=diffImage(this) />
             </a>
         </div>
-        <div id = "links">
-            <div class = "move">
+        <div id = "bottomLeft">
+            <a class="tooltips" href = http://www.redbubble.com/people/spacemanriff/works/14186840-colon-caret-closed-parenthesis>
+                <img src="./resources/social/smile/nice_smile.png" id="smile" alt=":^)" width="50" height="50" onclick=diffImage(this) /><span>:^) Stuff</span>
+            </a>        
+        </div>
+        <div id = "bottomRight">
+            <div class = "moveLeft">
                 <a class="tooltips" href = http://music.spacemanriff.me>
                     <img src="./resources/social/soundcloud/nice_soundcloud.png" id="soundcloud" alt="soundcloud" width="70" height="85" onclick=diffImage(this) /><span>Soundcloud</span>
                 </a>
             </div>
-            <div class = "move">
+            <div class = "moveLeft">
                 <a class="tooltips" href = http://twitter.spacemanriff.me>
                     <img src="./resources/social/twitter/nice_twitter.png" id="twitter" alt="twitter" width="70" height="85" onclick=diffImage(this) /><span>Twitter</span>
                 </a>
             </div>
-            <div class = "move">
+            <div class = "moveLeft">
                 <a class="tooltips" href = http://facebook.spacemanriff.me>
                     <img src="./resources/social/facebook/nice_facebook.png" id="facebook" alt="facebook" width="70" height="85" onclick=diffImage(this) /><span>Facebook</span>
                 </a>
             </div>
-            <div class = "move">
+            <div class = "moveLeft">
                 <a class="tooltips" href = http://youtube.spacemanriff.me>
                     <img src="./resources/social/youtube/nice_youtube.png" id="youtube" alt="youtube" width="70" height="85" onclick=diffImage(this) /><span>Youtube</span>
                 </a>
             </div>
-            <div class = "move">
+            <div class = "moveLeft">
                 <a class="tooltips" href = http://stickers.spacemanriff.me>
                     <img src="./resources/spacemanrifflargetransparentwborder.png" id="stickers" alt="stickers" width="70" height="85" /><span>Stickers</span>
                 </a>
             </div>
-            <div class = "move">
+            <div class = "moveLeft">
                 <a class="tooltips" href = http://merch.spacemanriff.me>
                     <img src="./resources/social/merch/nice_merch.png" id="merch" alt="merch" width="70" height="33" onclick=diffImage(this) /><span>Merch</span>
                 </a>
