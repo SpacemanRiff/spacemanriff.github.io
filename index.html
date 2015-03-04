@@ -17,23 +17,16 @@
             }
         }
         document.addEventListener('mousemove', function (event){
-            if (window.event){
-                event = window.event;
-            }
-            
+            if (window.event) event = window.event;  
             var mousex = event.clientX;
             var mousey = event.clientY;  
+            var scalex = 0.2;
+            var scaley = 0.2;
             
-            if(mousex > oldx){
-                xpos += 0.1;
-            }else{
-                xpos -= 0.1;
-            }
-            if(mousey > oldy){
-                ypos += 0.1;
-            }else{
-                ypos -= 0.1;
-            }
+            if(mousex > oldx) xpos += scalex;
+            else xpos -= scalex;
+            if(mousey > oldy) ypos += scaley;
+            else ypos -= scaley;    
             
             oldx = mousex;
             oldy = mousey;
