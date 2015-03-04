@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>   
     <script>
+        var oldx = 0;
+        var oldy = 0;     
+        var xpos = 0;
+        var ypos = 0;
+        
         function diffImage(img) {
             "use strict";
             if(img.id.match("main")){
@@ -11,15 +16,30 @@
                 else img.src = "./resources/social/" + img.id + "/yay_" + img.id + ".png";  
             }
         }
-        document.addEventListener('mousemove', function (event) {
-            if (window.event) {
+        document.addEventListener('mousemove', function (event){
+            if (window.event){
                 event = window.event;
             }
             
             var mousex = event.clientX;
-            var mousey = event.clientY;
+            var mousey = event.clientY;  
+            
+            if(mousex > oldx){
+                xpos += 0.1;
+            }else{
+                xpos -= 0.1;
+            }
+            if(mousey > oldy){
+                ypos += 0.1;
+            }else{
+                ypos -= 0.1;
+            }
+            
+            oldx = mousex;
+            oldy = mousey;
+            
             var header = document.getElementById('header');
-            header.style.backgroundPosition = mousex/12 + 'px ' + mousey/12 + "px";
+            header.style.backgroundPosition = xpos + 'px ' + ypos + "px";
         }, false);
     </script>
     
