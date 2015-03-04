@@ -11,11 +11,25 @@
                 else img.src = "./resources/social/" + img.id + "/yay_" + img.id + ".png";  
             }
         }
+        document.addEventListener('mousemove', function (event) {
+            if (window.event) {
+                event = window.event;
+            }
+            
+            var mousex = event.clientX;
+            var mousey = event.clientY;
+            var header = document.getElementById('header');
+            header.style.backgroundPosition = mousex/12 + 'px ' + mousey/12 + "px";
+        }, false);
     </script>
     
     <head>
         <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-        <style>              
+        <style>        
+            #header {
+                background-image: url('./resources/backgroundtile.png');
+            }
+            
             img {
                 display: block;
                 padding-top: 20px;
@@ -96,7 +110,7 @@
         <link rel="shortcut icon" href="./resources/icon.png"/>
     </head>
     
-    <body background="./resources/backgroundtile.png">
+    <body id = "header">
         <div id = "cf">
             <a href = http://nice.spacemanriff.me>
                 <img class="bottom" src="./resources/yay.png" id="main" alt=":^(" width="350" height="425" />
