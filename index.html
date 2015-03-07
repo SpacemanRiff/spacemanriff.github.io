@@ -5,6 +5,8 @@
         var oldy = 0;     
         var xpos = 0;
         var ypos = 0;
+        var scalex = -0.2;
+        var scaley = -0.2;
         
         function diffImage(img) {
             "use strict";
@@ -20,8 +22,6 @@
             if (window.event) event = window.event;  
             var mousex = event.clientX;
             var mousey = event.clientY;  
-            var scalex = -0.2;
-            var scaley = -0.2;
             
             if(mousex > oldx) xpos += scalex;
             else xpos -= scalex;
@@ -95,7 +95,7 @@
             a.tooltips span {
                 position: absolute;
                 width:70px;
-                color: #FFFFFF;
+                color: #CCCCCC;
                 background: #000000;
                 height: 24px;
                 line-height: 24px;
@@ -113,7 +113,7 @@
             a:hover.tooltips span {
                 visibility: visible;
                 opacity: 0.8;
-                bottom: 0px;
+                bottom: 4px;
                 margin-left: 0px;
                 z-index: 999;
             }
@@ -167,5 +167,5 @@
                 </a>
             </div>
         </div>
-    <body>
+    </body>
 </html>

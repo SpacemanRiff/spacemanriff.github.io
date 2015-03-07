@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>   
+    <script>
+        var oldx = 0;
+        var oldy = 0;     
+        var xpos = 0;
+        var ypos = 0;
+        var scalex = -0.4;
+        var scaley = -0.4;
+        
+        document.addEventListener('mousemove', function (event){
+            if (window.event) event = window.event;  
+            var mousex = event.clientX;
+            var mousey = event.clientY;  
+            
+            if(mousex > oldx) xpos += scalex;
+            else xpos -= scalex;
+            if(mousey > oldy) ypos += scaley;
+            else ypos -= scaley;    
+            
+            oldx = mousex;
+            oldy = mousey;
+            
+            var header = document.getElementById('header');
+            header.style.backgroundPosition = xpos + 'px ' + ypos + "px";
+        }, false);
+    </script>
+    
+    <head>
+        <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+        <style>        
+            #header {
+                background-image: url('../resources/backgroundtile.png');
+            }
+        </style>        
+        <title>Spaceman Riff!</title>
+        <link rel="shortcut icon" href="../resources/icon.png"/>
+    </head>
+    
+    <body id = "header">
+    </body>
+</html>
