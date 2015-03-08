@@ -2,8 +2,8 @@ const xscale = 0.025;
 const yscale = 0.025;
 const xdecscalefast = xscale/4;
 const ydecscalefast = yscale/4;
-const xmax = 20.0;
-const ymax = 20.0;
+const xmax = 10.0;
+const ymax = 10.0;
     
 var xpos = 0;
 var ypos = 0;
@@ -24,17 +24,25 @@ document.addEventListener('mousemove', function (event){
     if(xmouse > xold) {
         if(xmove - xscale > -(xmax))
             xmove -= xscale;
+        else
+            xmove -= xscale/8;
     } else if(xmouse < xold) { 
         if(xmove + xscale < xmax)
             xmove += xscale;
+        else
+            xmove += xscale/8;
     }
     if(ymouse > yold) {
         if(ymove - yscale > -(ymax))
             ymove -= yscale;
+        else
+            ymove -= yscale/8;
     }
     else if(ymouse < yold) {
         if(ymove + yscale < ymax)
             ymove += yscale;
+        else
+            ymove += yscale/8;
     }
     
     xold = xmouse;
