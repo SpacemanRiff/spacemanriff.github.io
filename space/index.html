@@ -2,7 +2,7 @@
 <html>   
     <script>
         var xold = 0;
-        var oldy = 0;     
+        var yold = 0;     
         var xpos = 0;
         var ypos = 0;
         var xmove = 0;
@@ -17,27 +17,27 @@
         
         document.addEventListener('mousemove', function (event){
             if (window.event) event = window.event;  
-            var mousex = event.clientX;
-            var mousey = event.clientY;  
+            var xmouse = event.clientX;
+            var ymouse = event.clientY;  
             
-            if(mousex > xold) {
+            if(xmouse > xold) {
                 if(xmove - xscale > -(xmax))
                     xmove -= xscale;
-            } else if(mousex < xold) { 
+            } else if(xmouse < xold) { 
                 if(xmove + xscale < xmax)
                     xmove += xscale;
             }
-            if(mousey > oldy) {
+            if(ymouse > yold) {
                 if(ymove - yscale > -(ymax))
                     ymove -= yscale;
             }
-            else if(mousey < oldy) {
+            else if(ymouse < yold) {
                 if(ymove + yscale < ymax)
                     ymove += yscale;
             }
             
-            xold = mousex;
-            oldy = mousey;
+            xold = xmouse;
+            yold = ymouse;
             
             var header = document.getElementById('header');
         }, false);
