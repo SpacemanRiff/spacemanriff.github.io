@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html>   
-    <script>
-        var xold = 0;
-        var yold = 0;     
+    <script>   
+        const xscale = 0.025;
+        const yscale = 0.025;
+        const xdecscalefast = xscale/4;
+        const ydecscalefast = yscale/4;
+        const xmax = 20.0;
+        const ymax = 20.0;
+            
         var xpos = 0;
         var ypos = 0;
+        var xold = 0;
+        var yold = 0; 
         var xmove = 0;
         var ymove = 0;        
         var xdec = 0;
-        var ydec = 0;
-        
-        const xscale = 0.025;
-        const yscale = 0.025;
-        const xdecscale = xscale/16;
-        const ydecscale = yscale/16;
-        const xmax = 4.0;
-        const ymax = 4.0;
+        var ydec = 0;        
+        var xdecscale = xscale/16;
+        var ydecscale = yscale/16;
         
         document.addEventListener('mousemove', function (event){
             if (window.event) event = window.event;  
@@ -41,13 +43,32 @@
             xold = xmouse;
             yold = ymouse;
             
-            xdec = Math.sqrt((Math.pow(xmove, 2) + Math.pow(ymove, 2)) - Math.pow(ymove,2)) * xdecscale;
-            ydec = Math.sqrt((Math.pow(xmove, 2) + Math.pow(ymove, 2)) - Math.pow(xmove,2)) * ydecscale;
+            calcDec();
             
             var header = document.getElementById('header');
         }, false);
         
+        document.addEventListener('mousedown', function (event) {  
+            xdecscale = xscale / 4;
+            ydecscale = yscale / 4;
+            
+            calcDec();
+        }, false);
+        
+        document.addEventListener('mouseup', function (event) {  
+            xdecscale = xscale / 16;
+            ydecscale = yscale / 16;
+            
+            calcDec();
+        }, false);
+        
         setInterval(function () {moveSpace()}, 10);
+        
+        function calcDec() {
+            
+            xdec = Math.sqrt((Math.pow(xmove, 2) + Math.pow(ymove, 2)) - Math.pow(ymove, 2)) * xdecscale;
+            ydec = Math.sqrt((Math.pow(xmove, 2) + Math.pow(ymove, 2)) - Math.pow(xmove, 2)) * ydecscale;            
+        }
         
         function moveSpace() {
             if((xmove != 0 || ymove != 0)){
