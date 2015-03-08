@@ -1,12 +1,70 @@
 <!DOCTYPE html>
 <html>   
     <script>
-        var oldx = 0;
-        var oldy = 0;     
+        var xold = 0;
+        var yold = 0;     
         var xpos = 0;
         var ypos = 0;
-        var scalex = -0.2;
-        var scaley = -0.2;
+        var xmove = 0;
+        var ymove = 0;        
+        var xdec = 0;
+        var ydec = 0;
+        
+        const xscale = 0.025;
+        const yscale = 0.025;
+        const xdecscale = xscale/16;
+        const ydecscale = yscale/16;
+        const xmax = 4.0;
+        const ymax = 4.0;
+        
+        document.addEventListener('mousemove', function (event){
+            if (window.event) event = window.event;  
+            var xmouse = event.clientX;
+            var ymouse = event.clientY;  
+            
+            if(xmouse > xold) {
+                if(xmove - xscale > -(xmax))
+                    xmove -= xscale;
+            } else if(xmouse < xold) { 
+                if(xmove + xscale < xmax)
+                    xmove += xscale;
+            }
+            if(ymouse > yold) {
+                if(ymove - yscale > -(ymax))
+                    ymove -= yscale;
+            }
+            else if(ymouse < yold) {
+                if(ymove + yscale < ymax)
+                    ymove += yscale;
+            }
+            
+            xold = xmouse;
+            yold = ymouse;
+            
+            xdec = Math.sqrt((Math.pow(xmove, 2) + Math.pow(ymove, 2)) - Math.pow(ymove,2)) * xdecscale;
+            ydec = Math.sqrt((Math.pow(xmove, 2) + Math.pow(ymove, 2)) - Math.pow(xmove,2)) * ydecscale;
+            
+            var header = document.getElementById('header');
+        }, false);
+        
+        setInterval(function () {moveSpace()}, 10);
+        
+        function moveSpace() {
+            if((xmove != 0 || ymove != 0)){
+                xpos += xmove;
+                ypos += ymove;
+                header.style.backgroundPosition = xpos + 'px ' + ypos + "px";
+                if(xmove > 0 )
+                    xmove -= xdec;
+                else if (xmove < 0)
+                    xmove += xdec;
+
+                if(ymove > 0 )
+                    ymove -= ydec;
+                else if (ymove < 0)
+                    ymove += ydec;
+            }
+        }
         
         function diffImage(img) {
             "use strict";
@@ -18,22 +76,6 @@
                 else img.src = "./resources/social/" + img.id + "/yay_" + img.id + ".png";  
             }
         }
-        document.addEventListener('mousemove', function (event){
-            if (window.event) event = window.event;  
-            var mousex = event.clientX;
-            var mousey = event.clientY;  
-            
-            if(mousex > oldx) xpos += scalex;
-            else xpos -= scalex;
-            if(mousey > oldy) ypos += scaley;
-            else ypos -= scaley;    
-            
-            oldx = mousex;
-            oldy = mousey;
-            
-            var header = document.getElementById('header');
-            header.style.backgroundPosition = xpos + 'px ' + ypos + "px";
-        }, false);
     </script>
     
     <head>

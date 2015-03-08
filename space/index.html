@@ -6,12 +6,14 @@
         var xpos = 0;
         var ypos = 0;
         var xmove = 0;
-        var ymove = 0;
+        var ymove = 0;        
+        var xdec = 0;
+        var ydec = 0;
         
         const xscale = 0.025;
         const yscale = 0.025;
-        const xdec = xscale/4;
-        const ydec = yscale/4;
+        const xdecscale = xscale/16;
+        const ydecscale = yscale/16;
         const xmax = 4.0;
         const ymax = 4.0;
         
@@ -38,6 +40,9 @@
             
             xold = xmouse;
             yold = ymouse;
+            
+            xdec = Math.sqrt((Math.pow(xmove, 2) + Math.pow(ymove, 2)) - Math.pow(ymove,2)) * xdecscale;
+            ydec = Math.sqrt((Math.pow(xmove, 2) + Math.pow(ymove, 2)) - Math.pow(xmove,2)) * ydecscale;
             
             var header = document.getElementById('header');
         }, false);
