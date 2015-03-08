@@ -81,14 +81,30 @@ function moveSpace() {
         ypos += ymove;
         header.style.backgroundPosition = xpos + 'px ' + ypos + "px";
         
-        if(xmove > 0 )
-            xmove -= xdec;
-        else if (xmove < 0)
-            xmove += xdec;
-
-        if(ymove > 0 )
-            ymove -= ydec;
-        else if (ymove < 0)
-            ymove += ydec;
+        if(xmove > 0 ){
+            if(xmove - xdec < 0)
+                xmove = 0;
+            else
+                xmove -= xdec;
+        }
+        else if (xmove < 0){
+            if(xmove + xdec > 0)
+                xmove = 0;
+            else
+                xmove += xdec;
+        }
+        
+        if(ymove > 0 ){
+            if(ymove - ydec < 0)
+                ymove = 0;
+            else
+                ymove -= ydec;
+        }
+        else if (ymove < 0){
+            if(ymove + ydec > 0)
+                ymove = 0;
+            else
+                ymove += ydec;
+        }
     }
 }
