@@ -5,25 +5,56 @@
         var oldy = 0;     
         var xpos = 0;
         var ypos = 0;
-        var scalex = -0.4;
-        var scaley = -0.4;
+        var scalex = 0.025;
+        var scaley = 0.025;
+        var movex = 0;
+        var movey = 0;
         
         document.addEventListener('mousemove', function (event){
             if (window.event) event = window.event;  
             var mousex = event.clientX;
             var mousey = event.clientY;  
             
-            if(mousex > oldx) xpos += scalex;
-            else xpos -= scalex;
-            if(mousey > oldy) ypos += scaley;
-            else ypos -= scaley;    
+            if(mousex > oldx) {
+                if(movex - scalex > -(2.0))
+                    movex -= scalex;
+            } else if(mousex < oldx) { 
+                if(movex + scalex < 2.0)
+                    movex += scalex;
+            }
+            if(mousey > oldy) {
+                if(movey - scaley > -(2.0))
+                    movey -= scaley;
+            }
+            else if(mousey < oldy) {
+                if(movey + scaley < 4.0)
+                    movey += scaley;
+            }
             
             oldx = mousex;
             oldy = mousey;
             
             var header = document.getElementById('header');
-            header.style.backgroundPosition = xpos + 'px ' + ypos + "px";
         }, false);
+        
+        setInterval(function () {moveSpace()}, 10);
+        
+        function moveSpace() {
+            if((movex != 0 || movey != 0)){
+                xpos += movex;
+                ypos += movey;
+                header.style.backgroundPosition = xpos + 'px ' + ypos + "px";
+                if(movex > 0 )
+                    movex -= scalex/2;
+                else if (movex < 0)
+                    movex += scalex/2;
+
+                if(movey > 0 )
+                    movey -= scaley/2;
+                else if (movey < 0)
+                    movey += scaley/2;
+            }
+        }
     </script>
     
     <head>
