@@ -2,8 +2,15 @@
 <html>       
     <head>
         <script src="../backgroundmove.js"></script>
+        <script>
+            function randomTitle(){
+                var titles = ["Just the Space!", "All Space, No Man!", "The Void", "Absolute Emptiness", "Weeeeeeeeeee", ":^)"];
+                return titles[Math.floor(Math.random() * titles.length)];
+            }
+            document.write('<title>' + randomTitle() + '</title>');
+        </script>
         <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-        <style>        
+        <style>
             #header {
                 background-image: url('../resources/backgroundtile.png');
                 -webkit-touch-callout: none;
@@ -13,8 +20,8 @@
                 -ms-user-select: none;
                 user-select: none;
             }
-        </style>        
-        <title>Spaceman Riff!</title>
+        </style>
+        <title>Nice!</title>
         <link rel="shortcut icon" href="../resources/icon.png"/>
     </head>
     
