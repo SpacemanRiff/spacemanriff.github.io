@@ -1,18 +1,13 @@
-const xscale = 0.025;
-const yscale = 0.025;
+const xscale = 0.0125;
+const yscale = 0.0125;
 const xdecscalefast = xscale / 4;
 const ydecscalefast = yscale / 4;
-const xmax = 7.5;
-const ymax = 7.5;
+const xmax = 5.0; const ymax = 5.0;
     
-var xpos = 0;
-var ypos = 0;
-var xold = 0;
-var yold = 0; 
-var xmove = 0;
-var ymove = 0;        
-var xdec = 0;
-var ydec = 0;        
+var xpos = 0; var ypos = 0;
+var xold = 0; var yold = 0; 
+var xmove = 0; var ymove = 0;        
+var xdec = 0; var ydec = 0;        
 var xdecscale = xscale / 16;
 var ydecscale = yscale / 16;
 
