@@ -1,37 +1,42 @@
 <!DOCTYPE html>
 <html>   
     <script>
-        var oldx = 0;
+        var xold = 0;
         var oldy = 0;     
         var xpos = 0;
         var ypos = 0;
-        var scalex = 0.025;
-        var scaley = 0.025;
-        var movex = 0;
-        var movey = 0;
+        var xmove = 0;
+        var ymove = 0;
+        
+        const xscale = 0.025;
+        const yscale = 0.025;
+        const xdec = xscale/4;
+        const ydec = yscale/4;
+        const xmax = 4.0;
+        const ymax = 4.0;
         
         document.addEventListener('mousemove', function (event){
             if (window.event) event = window.event;  
             var mousex = event.clientX;
             var mousey = event.clientY;  
             
-            if(mousex > oldx) {
-                if(movex - scalex > -(2.0))
-                    movex -= scalex;
-            } else if(mousex < oldx) { 
-                if(movex + scalex < 2.0)
-                    movex += scalex;
+            if(mousex > xold) {
+                if(xmove - xscale > -(xmax))
+                    xmove -= xscale;
+            } else if(mousex < xold) { 
+                if(xmove + xscale < xmax)
+                    xmove += xscale;
             }
             if(mousey > oldy) {
-                if(movey - scaley > -(2.0))
-                    movey -= scaley;
+                if(ymove - yscale > -(ymax))
+                    ymove -= yscale;
             }
             else if(mousey < oldy) {
-                if(movey + scaley < 4.0)
-                    movey += scaley;
+                if(ymove + yscale < ymax)
+                    ymove += yscale;
             }
             
-            oldx = mousex;
+            xold = mousex;
             oldy = mousey;
             
             var header = document.getElementById('header');
@@ -40,19 +45,19 @@
         setInterval(function () {moveSpace()}, 10);
         
         function moveSpace() {
-            if((movex != 0 || movey != 0)){
-                xpos += movex;
-                ypos += movey;
+            if((xmove != 0 || ymove != 0)){
+                xpos += xmove;
+                ypos += ymove;
                 header.style.backgroundPosition = xpos + 'px ' + ypos + "px";
-                if(movex > 0 )
-                    movex -= scalex/2;
-                else if (movex < 0)
-                    movex += scalex/2;
+                if(xmove > 0 )
+                    xmove -= xdec;
+                else if (xmove < 0)
+                    xmove += xdec;
 
-                if(movey > 0 )
-                    movey -= scaley/2;
-                else if (movey < 0)
-                    movey += scaley/2;
+                if(ymove > 0 )
+                    ymove -= ydec;
+                else if (ymove < 0)
+                    ymove += ydec;
             }
         }
     </script>
