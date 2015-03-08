@@ -1,9 +1,9 @@
 const xscale = 0.025;
 const yscale = 0.025;
-const xdecscalefast = xscale/4;
-const ydecscalefast = yscale/4;
-const xmax = 10.0;
-const ymax = 10.0;
+const xdecscalefast = xscale / 4;
+const ydecscalefast = yscale / 4;
+const xmax = 7.5;
+const ymax = 7.5;
     
 var xpos = 0;
 var ypos = 0;
@@ -13,8 +13,8 @@ var xmove = 0;
 var ymove = 0;        
 var xdec = 0;
 var ydec = 0;        
-var xdecscale = xscale/16;
-var ydecscale = yscale/16;
+var xdecscale = xscale / 16;
+var ydecscale = yscale / 16;
 
 document.addEventListener('mousemove', function (event){
     if (window.event) event = window.event;  
@@ -25,24 +25,24 @@ document.addEventListener('mousemove', function (event){
         if(xmove - xscale > -(xmax))
             xmove -= xscale;
         else
-            xmove -= xscale/8;
+            xmove -= xscale / 8;
     } else if(xmouse < xold) { 
         if(xmove + xscale < xmax)
             xmove += xscale;
         else
-            xmove += xscale/8;
+            xmove += xscale / 8;
     }
     if(ymouse > yold) {
         if(ymove - yscale > -(ymax))
             ymove -= yscale;
         else
-            ymove -= yscale/8;
+            ymove -= yscale / 8;
     }
     else if(ymouse < yold) {
         if(ymove + yscale < ymax)
             ymove += yscale;
         else
-            ymove += yscale/8;
+            ymove += yscale / 8;
     }
     
     xold = xmouse;
@@ -67,7 +67,7 @@ document.addEventListener('mouseup', function (event) {
     calcDec();
 }, false);
 
-setInterval(function () {moveSpace()}, 10);
+setInterval(function() {moveSpace()}, 10);
 
 function calcDec() {
     
@@ -80,6 +80,7 @@ function moveSpace() {
         xpos += xmove;
         ypos += ymove;
         header.style.backgroundPosition = xpos + 'px ' + ypos + "px";
+        
         if(xmove > 0 )
             xmove -= xdec;
         else if (xmove < 0)
