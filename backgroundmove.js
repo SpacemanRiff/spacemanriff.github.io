@@ -2,7 +2,7 @@ const xscale = 0.0125;
 const yscale = 0.0125;
 const xdecscalefast = xscale / 4;
 const ydecscalefast = yscale / 4;
-const xmax = 5.0; const ymax = 5.0;
+const xmax = 10; const ymax = 10;
     
 var xpos = 0; var ypos = 0;
 var xold = 0; var yold = 0; 
