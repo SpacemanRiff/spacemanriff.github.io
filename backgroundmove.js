@@ -1,3 +1,13 @@
+/*
+    :^) :^) :^) :^) :^) :^) :^) :^) :^) :^) 
+    
+    all code written by Scott Troutman
+        Twitter: http://twitter.com/SpacemanRiff
+        Github: http://github.com/SpacemanRiff
+
+    :^) :^) :^) :^) :^) :^) :^) :^) :^) :^) 
+*/
+
 const xdefscale = 0.0125;
 const ydefscale = 0.0125;
 const xdecscalefast = xscale / 4;
