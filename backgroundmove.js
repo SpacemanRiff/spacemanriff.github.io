@@ -12,7 +12,7 @@ const xdefscale = 0.0125;
 const ydefscale = 0.0125;
 const xdecscalefast = xscale / 4;
 const ydecscalefast = yscale / 4;
-const xmax = 10; const ymax = 10;
+const xmax = 4; const ymax = 4;
 
 var xscale = xdefscale;
 var yscale = xdefscale;    
